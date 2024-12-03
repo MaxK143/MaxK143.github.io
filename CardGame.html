@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Card Matching</title>
+    <style>
+                    ul{
+                margin: 0px;
+                border: 0px;
+                padding: 0px;
+
+                position: fixed ;
+                top: 0%;
+
+                border: 1% solid rgb(255, 255, 255) ;
+            
+                text-align: center;
+
+                font-family: sans-serif ;
+                font-size: 150% ;
+                font-weight: 500 ;
+
+                width: 100% ;
+            
+
+                background-color: rgb(11, 0, 11);
+                color: #CECECE;
+
+            }
+            body{
+                background-color: #1A1917;
+                margin: 0px;
+                border: 0px;
+                padding: 0px;
+            
+                text-align: center;
+
+                font-size: 100%;
+                background-image: url("images/RoboCode.jpg") ;
+                background-repeat: repeat-y;
+                background-attachment: scroll;
+                background-position: bottom left;
+                background-size: 2000px 1750px;
+
+                color: #CECECE;
+
+            }
+            a:link {
+                color: unset;
+                text-decoration: none;
+            }
+
+            a:visited {
+                color: unset;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: unset;
+                text-decoration: none;
+            }
+
+            a:active {
+                color: unset;
+                text-decoration: none;
+            }
+
+            a.scrollable{
+                color: unset;
+                text-decoration: none;
+
+                padding-left: 25%;
+                padding-right: 25%;
+                /*padding-top: 10%;
+                padding-bottom: 10%;*/
+                border: 2px solid rgb(84, 84, 84);
+                border-radius: 15px;
+                margin-left: 1.5%;
+                margin-right: 1.5%;
+            }
+
+            .scroll-buttons-grid{
+                margin: 0%;
+                border: 0px;
+                padding: 1%;
+                padding-left: 2%;
+                padding-right: 2%;
+                display: grid;
+
+                align-self: center;
+
+                grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%;
+                grid-template-rows: 100%;
+
+                grid-auto-flow: Column;
+
+                grid-gap: 0%;
+
+                text-align: center;
+            }
+
+            .left-scroll-button{
+
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                padding-top: 5%;
+            }
+
+            .right-scroll-button{
+
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                padding-top: 6%;
+            
+            }
+    </style>
+</head>
+
+<ul>
+    <div>
+        <div class="Title">
+            <div> Robert Maxwell Kellinghaus</div>
+        </div>
+        <div class="scroll-buttons-grid">
+            <a class="scrollable left-scroll-button" href="index.html" ><div>Home</div></a>
+            <a class="scrollable" href="CurrentEmployment.html" ><div>Current Employment</div></a>
+            <a class="scrollable" href="TechKnowledge.html" ><div>Technical Knowledge</div></a>
+            <a class="scrollable card-game" href="CardGame.html" style="padding-left: 30%;padding-right: 30%;"><div>Card Game</div></a>
+            <a class="scrollable" href="FavGames.html" ><div>Favorite Games</div></a>
+            <a class="scrollable right-scroll-button" href="Links.html" ><div>Links</div></a>
+        </div>
+    </div>
+</ul>
+
+<body>
+    <div style="height: 170px;"></div>
+    <div class="container">
+        <div class="row">
+            Set difficulty:
+            <select id="difficulty" class="form-control">
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+			</select>
+        </div>
+        <button onClick="startGame()" class="btn btn-primary">Start game</button>
+        <div class="row">
+            <div class="col-6">
+                <h1>Deck 1</h1>
+                <div class="row" id="deck1"></div>
+            </div>
+            <div class="col-6">
+                <h1>Deck 2</h1>
+                <div class="row" id="deck2"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="shuffle.js"></script>
+    <script>
+        var deck = ['AC', '2C', '3C', '4C', '5C', '6C', '7C', '8C', '9C', '10C', 'JC', 'KC', 'QC', 'AD', '2D', '3D', '4D', '5D', '6D', '7D', '8D', '9D', '10D', 'JD', 'KD', 'QD', 'AH', '2H', '3H', '4H', '5H', '6H', '7H', '8H', '9H', '10H', 'JH', 'KH', 'QH', 'AS', '2S', '3S', '4S', '5S', '6S', '7S', '8S', '9S', '10S', 'JS', 'KS', 'QS'];
+        var value = 5;
+        var element = document.getElementById('difficulty');
+        var deck1div = document.getElementById('deck1');
+        var deck2div = document.getElementById('deck2');
+        var deck1 = [''];
+        var deck2 = [''];
+        var card = '';
+        var deck1card;
+        var deck2card;
+        var d1flip = false;
+        var d2flip = false;
+        var d1id = -1;
+        var d2id = -1;
+
+
+        function startGame() {
+
+            value = element.options[element.selectedIndex].value;
+            console.log(value);
+
+            deck = shuffle(deck);
+            deck1 = [];
+            deck2 = [];
+            deck1div.innerHTML = '';
+            deck2div.innerHTML = '';
+
+            for (i = 0; i < value; i++) {
+                deck1.push(deck[i]);
+                deck2.push(deck[i]);
+            }
+
+            deck1 = shuffle(deck1);
+            deck2 = shuffle(deck2);
+
+            for (i = 0; i < value; i++) {
+                card = '<div  id= "' + (i + 1) + '"    class="col-6"><img onclick="flip(' + (i + 1) + ')" src="img/blue_back.png" style="width:100%" /></div>';
+                deck1div.innerHTML += card;
+                card = '<div  id= "' + ((i * -1) - 1) + '" class="col-6"><img onclick="flip(' + ((i * -1) - 1) + ')" src="img/blue_back.png" style="width:100%" /></div>';
+                deck2div.innerHTML += card;
+            }
+        }
+
+        function flip(number) {
+            console.log(number);
+
+            var deck1card = document.getElementById('1');
+            var deck2card = document.getElementById('-1');
+
+            if (number > 0 && !d1flip) {
+                var string = '' + (number);
+                deck1card = document.getElementById(string);
+                d1id = number - 1;
+                deck1card.innerHTML = '<img onclick="flip(' + number + ')" src="img/' + deck1[number - 1] + '.png" style="width:100%" />';
+                d1flip = true;
+            } else if (number < 0 && !d2flip) {
+                var string = '' + (number);
+                deck2card = document.getElementById(string);
+                d2id = (number * -1) - 1;
+                deck2card.innerHTML = '<img onclick="flip(' + number + ')" src="img/' + deck2[(number * -1) - 1] + '.png" style="width:100%" />';
+                d2flip = true;
+            } else if (number < 0 && d2flip) {
+                var string = '' + number;
+                deck2card = document.getElementById(string);
+                deck2card.innerHTML = '<img onclick="flip(' + number + ')" src="img/blue_back.png" style="width:100%" />';
+                if (((number * -1) - 1) == d2id) {
+                    d2flip = false;
+                }
+            } else if (number > 0 && d1flip) {
+                var string = '' + number;
+                deck1card = document.getElementById(string);
+                deck1card.innerHTML = '<img onclick="flip(' + number + ')" src="img/blue_back.png" style="width:100%" />';
+                if ((number - 1) == d1id) {
+                    d1flip = false;
+                }
+            }
+
+            if (deck1[d1id] == deck2[d2id]) {
+                var string = '' + (d1id + 1);
+                document.getElementById(string).innerHTML = '';
+                var string = '' + ((d2id * -1) - 1);
+                document.getElementById(string).innerHTML = '';
+                d1flip = false;
+                d2flip = false;
+                if (deck1div.innerHTML == '' && deck2div.innerHTML == '') {
+                    alert('You win!');
+                }
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
